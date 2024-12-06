@@ -70,6 +70,14 @@ class WeatherPage extends StatelessWidget {
                     height: 200,
                   ),
                 ),
+                Positioned(
+                  top: 20,
+                  left: -20,
+                  child: Image.asset(
+                    "assets/christmas-bell.png",
+                    height: 100,
+                  ),
+                ),
                 const SafeArea(
                   child: SingleChildScrollView(
                     child: Center(
