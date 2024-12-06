@@ -31,7 +31,10 @@ class WeatherPage extends StatelessWidget {
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
                       begin: Alignment.topCenter,
-                      end: Alignment.center,
+                      end: MediaQuery.of(context).orientation ==
+                              Orientation.landscape
+                          ? Alignment.bottomCenter
+                          : Alignment.center,
                       colors: state is WeatherSuccess
                           ? (state.weatherData.weather.condition == "Sunny"
                               ? [
@@ -58,6 +61,14 @@ class WeatherPage extends StatelessWidget {
                   top: 130,
                   right: -90,
                   child: Image.asset("assets/christmas_tree.png"),
+                ),
+                Positioned(
+                  left: -70,
+                  bottom: 60,
+                  child: Image.asset(
+                    "assets/snowman.png",
+                    height: 200,
+                  ),
                 ),
                 const SafeArea(
                   child: SingleChildScrollView(
