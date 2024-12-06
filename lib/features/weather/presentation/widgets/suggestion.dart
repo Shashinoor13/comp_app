@@ -38,25 +38,28 @@ class Suggestion extends StatelessWidget {
     return BlocBuilder<WeatherBloc, WeatherState>(
       builder: (context, state) {
         if (state is WeatherSuccess) {
-          return Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                "${conditionMapping[state.weatherData.weather.condition]![state.weatherData.weather.riskFactor.toString()]!} ",
-                style: const TextStyle(
-                    fontSize: 18,
-                    color: Colors.grey,
-                    fontWeight: FontWeight.bold),
-              ),
-              Text(
-                conditionMapping[state.weatherData.weather.condition]![
-                    "message"]!,
-                style: const TextStyle(
-                    color: Colors.orange,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold),
-              )
-            ],
+          return Padding(
+            padding: const EdgeInsets.only(left: 12.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(
+                  "${conditionMapping[state.weatherData.weather.condition]![state.weatherData.weather.riskFactor.toString()]!} ",
+                  style: const TextStyle(
+                      fontSize: 18,
+                      color: Colors.grey,
+                      fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  conditionMapping[state.weatherData.weather.condition]![
+                      "message"]!,
+                  style: const TextStyle(
+                      color: Colors.orange,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold),
+                )
+              ],
+            ),
           );
         }
         if (state is WeatherLoading) {
